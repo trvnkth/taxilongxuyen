@@ -1,0 +1,361 @@
+<html lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="description" content="Taxi Ngân Giang, thành phố Long Xuyên, tỉnh An Giang. Dịch vụ đặt xe taxi nhanh chóng, tiện lợi và giá rẻ. ">
+    <meta name="keywords" content="taxi long xuyên, taxi an giang, xe du lịch, đặt xe sân bay, taxi ngân giang, ngân giang, taxi, đặt xe, taxi giá rẻ, đặt xe online, dịch vụ xe, thuê xe, vận chuyển, taxi sân bay, taxi gần đây, an giang, long xuyên">
+    <meta name="author" content="Taxi Ngân Giang, Dịch vụ taxi du lịch Ngân Giang">
+    <title>Ngân Giang Taxi Service</title>
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="main.css">
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {},
+            },
+        };
+    </script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+    </style>
+
+    <!-- Link script.js-->
+    <script src="script.js" defer></script>
+</head>
+
+<body class="bg-gray-100">
+<header class="bg-white shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-1 px-1">
+        <img alt="Ngân Giang Logo" class="h-10" height="40" src="img/logo.png" width="120"/>
+        <nav class="flex space-x-20">
+            <a class="text-gray-700 hover:text-yellow-600" href="#home">Trang chủ</a>
+            <a class="text-gray-700 hover:text-yellow-600" href="#booking">Đặt xe</a>
+            <a class="text-gray-700 hover:text-yellow-600" href="#service">Dịch vụ</a>
+            <div class="relative">
+                <button class="text-gray-700 hover:text-yellow-600">Thêm <i class="fas fa-chevron-down"></i></button>
+                <div class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg hidden">
+                    <a class="block px-4 py-2 text-gray-700 hover:text-yellow-100" href="#">Đánh giá</a>
+                    <a class="block px-4 py-2 text-gray-700 hover:text-yellow-100" href="#">Liên hệ</a>
+                </div>
+            </div>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <div class="relative">
+                <!-- <input class="border border-gray-300 rounded-full py-2 px-4 pl-12 focus:outline-none focus:ring-2 focus:ring-yellow-500" 
+                    placeholder="Tìm kiếm..." type="text"/>
+                <div class="absolute left-3 top-1/2 transform -translate-y-1/2 bg-yellow-500 rounded-full w-8 h-8 flex justify-center items-center">
+                    <i class="fas fa-search text-gray-100"></i>
+                </div> -->
+
+                <input id="search-input" class="border border-gray-300 rounded-full py-2 px-4 pl-12 focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="Tìm kiếm..." type="text" onkeypress="handleKeyPress(event)"/>
+                <div class="absolute left-3 top-1/2 transform -translate-y-1/2 bg-yellow-500 rounded-full w-8 h-8 flex justify-center items-center cursor-pointer" onclick="searchWebsite()">
+                    <i class="fas fa-search text-gray-200"></i>
+                </div>
+            </div>
+            <i class="fas fa-user-circle text-gray-700 text-2xl"></i>
+        </div>
+    </div>
+</header>
+<main>
+    <!--TRANG CHỦ-->
+    <section id="home" class="w-full p-0 m-0">
+        <!-- Hình nền -->
+        <div class="w-full h-[650px] bg-cover bg-center p-0 m-0" 
+            style="background-image: url('img/background.png');">
+        </div>
+
+        <!-- Lớp phủ & nội dung -->
+        <div class="absolute top-1/3 -translate-y-12 left-0 flex flex-col justify-center items-start px-6 md:px-12 lg:w-2/3">
+            <h1 class="text-white text-4xl md:text-6xl font-bold pl-6 md:pl-12">
+                Dịch vụ taxi - du lịch <br> 
+                <span class="text-5xl md:text-7xl">Ngân Giang</span>
+            </h1>
+
+            <ul class="text-white mt-4 space-y-2 text-base md:text-lg pl-8 md:pl-16 list-none font-normal">
+                <li class="before:content-['•'] before:mr-2 before:text-white">Đón tiễn sân bay - Đường dài liên tỉnh</li>
+                <li class="before:content-['•'] before:mr-2 before:text-white">Xe tham quan du lịch, lễ hội</li>
+                <li class="before:content-['•'] before:mr-2 before:text-white">Xe đời mới 4/7/16 chỗ - sang trọng</li>
+                <li class="before:content-['•'] before:mr-2 before:text-white">Đặt xe dễ dàng - an toàn - hỗ trợ 24/7</li>
+            </ul>
+
+            <div class="flex items-center mt-6 space-x-4 pl-8 md:pl-16">
+                <div class="text-black font-bold py-2 px-4 rounded-full" style="background-color: #CFAF6C;"> HOTLINE: 034 323 2458</div>
+            </div>
+        </div>
+
+        <!--Button contact-->    
+        <div id="button-contact-vr" class="fixed bottom-0 z-[99999]">
+            <!--Zalo button-->
+            <div id="zalo-vr" class="relative mt-[-5px] shake-animation">
+                <div class="relative w-[90px] h-[90px] cursor-pointer z-[11] transition-all duration-500 left-0 bottom-0 block">
+                    <div class="absolute top-[12px] left-[12px] w-[65px] h-[65px] bg-[rgba(33,150,243,.7)] rounded-full border-2 border-transparent shadow-none"></div>
+                    <div class="absolute top-[25px] left-[25px] w-[40px] h-[40px] bg-[#2196f3] rounded-full flex justify-center items-center overflow-hidden">
+                        <a target="_blank" href="https://zalo.me/0343232458" class="block leading-[37px]">
+                            <img alt="Zalo" src="https://datxetructuyen.vn/wp-content/plugins/button-contact-vr/legacy/img/zalo.png" class="max-h-[25px] max-w-[27px] absolute top-1/2 left-1/2 transform translate-x-[-50%] translate-y-[-50%]">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Phone button-->
+            <div id="phone-vr" class="relative mt-[-5px] animate-shake">
+                <div class="relative w-[90px] h-[90px] cursor-pointer z-[11] transition-all duration-500 left-0 bottom-0 block">
+                    <div class="absolute top-[12px] left-[12px] w-[65px] h-[65px] bg-[rgba(0,128,0,.7)] rounded-full border-2 border-transparent shadow-none animate-[phone-vr-circle-fill_2.3s_infinite_ease-in-out]"></div>
+                    <div class="absolute top-[25px] left-[25px] w-[40px] h-[40px] bg-[#008000] rounded-full flex justify-center items-center overflow-hidden animate-[phone-vr-circle-fill_1s_infinite_ease-in-out]">
+                        <a target="_blank" href="tel:0343232458" class="block leading-[37px]">
+                            <img alt="Phone" src="https://datxetructuyen.vn/wp-content/plugins/button-contact-vr/legacy/img/phone.png" class="max-h-[25px] max-w-[27px] absolute top-1/2 left-1/2 transform translate-x-[-50%] translate-y-[-50%]">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Next car-->
+        <!-- <div class="absolute inset-0 flex justify-center items-center">
+            <img id="car-image" alt="Car image" class="w-1/2 h-auto" src="img/car7seat.jpeg"/>
+        </div>
+        <div class="absolute right-10 bottom-10 flex items-center space-x-4">
+            <button id="prev-car" class="bg-white text-gray-700 font-bold py-2 px-4 rounded-full shadow-md">Prev</button>
+            <button id="next-car" class="bg-white text-gray-700 font-bold py-2 px-4 rounded-full shadow-md">Next</button>
+        </div> -->
+    </section>
+
+    <!--ĐẶT XE-->
+    <!--NOTE: thay form action bằng mã formpee-->
+    <section id="booking" class="container mx-auto mt-10 px-6">
+        <h2 class="text-center text-3xl font-semibold text-gray-800 mb-6 bg-[#cfaf6c] px-6 py-3">🚖 ĐẶT XE</h2>
+    
+        <form action="https://formspree.io/f/xrbpapda" method="POST" class="bg-white rounded-lg shadow-lg p-6">
+            <!-- Chọn nội thành / liên tỉnh -->
+            <div class="flex border-b border-gray-300 pb-4 mb-4">
+                <button id="cityBtn" type="button"
+                    class="w-1/2 text-center px-6 py-2 text-yellow-600 font-semibold border-b-4 border-yellow-600 flex justify-center items-center space-x-2 transition"
+                    onclick="selectOption('city')">
+                    <i class="fas fa-home text-yellow-500"></i>
+                    <span>Nội thành</span>
+                </button>
+                <button id="provinceBtn" type="button"
+                    class="w-1/2 text-center px-6 py-2 text-gray-600 font-semibold border-b-4 border-gray-200 flex justify-center items-center space-x-2 transition"
+                    onclick="selectOption('province')">
+                    <i class="fas fa-plane text-yellow-500"></i>
+                    <span>Liên tỉnh</span>
+                </button>
+            </div>
+
+            <!-- Form đặt xe -->
+            <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4"> -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 grid-auto-flow-row">
+
+                <!-- Điểm đón -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-gray-700 font-medium">Điểm đón</label>
+                    <select id="pickup-select" class="border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        <option value="" disabled selected>Chọn điểm đón...</option>
+                        <option value="Quận 1">Quận 1</option>
+                        <option value="Quận 3">Quận 3</option>
+                        <option value="Quận 7">Quận 7</option>
+                        <option value="Tân Bình">Tân Bình</option>
+                        <option value="Sân bay Tân Sơn Nhất">Sân bay Tân Sơn Nhất</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                    <input type="text" id="pickup-input" name="pickup" class="border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 hidden" placeholder="Nhập điểm đón khác..."/>
+                </div>
+    
+                <!-- Điểm đến -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-gray-700 font-medium">Điểm đến</label>
+                    <select id="destination-select" class="border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        <option value="" disabled selected>Chọn điểm đến...</option>
+                        <option value="Quận 1">Quận 1</option>
+                        <option value="Quận 3">Quận 3</option>
+                        <option value="Quận 7">Quận 7</option>
+                        <option value="Tân Bình">Tân Bình</option>
+                        <option value="Sân bay Tân Sơn Nhất">Sân bay Tân Sơn Nhất</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                    <input type="text" id="destination-input" name="destination" class="border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 hidden" placeholder="Nhập điểm đến khác..."/>
+                </div>
+    
+                <!-- Chọn loại chuyến -->
+                <div class="flex space-x-4">
+                    <label class="text-gray-700 font-medium">Loại chuyến:</label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="trip_type" value="1 chiều" class="form-radio text-yellow-500" checked>
+                        <span class="ml-2 text-gray-700">1 chiều</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="trip_type" value="2 chiều" class="form-radio text-yellow-500">
+                        <span class="ml-2 text-gray-700">2 chiều</span>
+                    </label>
+                </div>
+
+                <!-- Loại xe -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-gray-700 font-medium">Loại xe</label>
+                    <select name="car_type" class="border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        <option value="4 chỗ">4 chỗ</option>
+                        <option value="7 chỗ">7 chỗ</option>
+                        <option value="16 chỗ">16 chỗ</option>
+                    </select>
+                </div>
+    
+                <!-- Ngày đi -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-gray-700 font-medium">Ngày đi</label>
+                    <input type="date" name="departure_date" required class="border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500"/>
+                </div>
+    
+                <!-- Ngày về -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-gray-700 font-medium">Ngày về</label>
+                    <input type="date" name="return_date" class="border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500"/>
+                </div>
+    
+                <!-- Họ và tên -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-gray-700 font-medium">Họ và tên</label>
+                    <input type="text" name="full_name" required class="border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="Nhập họ tên của bạn"/>
+                </div>
+    
+                <!-- Số điện thoại -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-gray-700 font-medium">Số điện thoại</label>
+                    <input type="tel" name="phone_number" required class="border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="Nhập số điện thoại"/>
+                </div>
+            </div>
+    
+            <!-- Buttons -->
+            <div class="flex justify-between items-center mt-6">
+                <a href="https://www.google.com/maps?q=Mỹ+Thới,+Long+Xuyên,+An+Giang" target="_blank" class="text-gray-700 hover:underline">
+                    📍 Xem trên bản đồ
+                </a>
+                <button type="submit" class="bg-[#cfaf6c] text-white font-bold py-2 px-6 rounded-full hover:bg-yellow-600 transition">🚕 ĐẶT XE NGAY</button>
+            </div>
+        </form>
+    </section>
+
+    <!--ĐA DẠNG HOÁ LỰA CHỌN-->
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-center text-3xl font-semibold text-gray-800 mb-6 bg-[#cfaf6c] px-6 py-3">ĐA DẠNG HOÁ LỰA CHỌN</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Taxi 4 chỗ -->
+                <div class="bg-white rounded-lg shadow-lg p-6 border border-[#CFAF6C]">
+                    <img src="img/car4seat.jpeg" alt="Taxi 4 chỗ" class="mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-gray-800">Taxi 4 chỗ</h3>
+                    <p class="text-gray-600 mt-2">Xe nhỏ gọn, linh hoạt, phù hợp cho các gia đình, nhóm bạn vui chơi hoặc những chuyến công tác cá nhân.</p>
+                </div>
+                
+                <!-- Taxi 7 chỗ -->
+                <div class="bg-white rounded-lg shadow-lg p-6 border border-[#CFAF6C]">
+                    <img src="img/car7seat.jpeg" alt="Taxi 7 chỗ" class="mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-gray-800">Taxi 7 chỗ</h3>
+                    <p class="text-gray-600 mt-2">Với thiết kế 3 hàng ghế, xe 7 chỗ có thể dễ dàng chở từ 5 đến 7 người. Không gian chứa đồ rộng rãi.</p>
+                </div>
+                
+                <!-- Taxi 16 chỗ -->
+                <div class="bg-white rounded-lg shadow-lg p-6 border border-[#CFAF6C]">
+                    <img src="img/car16seat.jpeg" alt="Taxi 16 chỗ" class="mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-gray-800">Taxi 16 chỗ</h3>
+                    <p class="text-gray-600 mt-2">Lựa chọn lý tưởng cho các chuyến du lịch, dã ngoại, công tác nhóm, hoặc các chuyến đi dài với số lượng lớn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--DỊCH VỤ-->
+    <section id="service" class="bg-white py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-center text-3xl font-semibold text-gray-800 mb-6 bg-[#cfaf6c] px-6 py-3">DỊCH VỤ</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Taxi du lịch -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <img src="img/tourism.jpeg" alt="Taxi du lịch" class="mx-auto mb-4 rounded-lg border-2 border-[#CFAF6C]">
+                    <h3 class="text-xl font-bold text-gray-800">Taxi du lịch</h3>
+                    <p class="text-gray-600 mt-2">Đón tiễn tham quan du lịch, tài xế chuyên nghiệp, nhiều kinh nghiệm. Quý khách thỏa sức vui chơi khám phá mọi địa điểm.</p>
+                    <button class="mt-4 px-4 py-2 bg-[#CFAF6C] text-white font-semibold rounded flex items-center justify-center mx-auto">
+                        Xem thêm ➜
+                    </button>
+                </div>
+                
+                <!-- Đón tiễn sân bay -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <img src="img/airport.jpeg" alt="Đón tiễn sân bay" class="mx-auto mb-4 rounded-lg border-2 border-[#CFAF6C]">
+                    <h3 class="text-xl font-bold text-gray-800">Đón tiễn sân bay</h3>
+                    <p class="text-gray-600 mt-2">Taxi Ngân Giang linh động đón tiễn sân bay đảm bảo đúng giờ, nhanh chóng, hỗ trợ hành lý miễn phí.</p>
+                    <button class="mt-4 px-4 py-2 bg-[#CFAF6C] text-white font-semibold rounded flex items-center justify-center mx-auto">
+                        Xem thêm ➜
+                    </button>
+                </div>
+                
+                <!-- Thuê xe 4/7/16 chỗ -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <img src="img/rental.jpeg" alt="Thuê xe 4/7/16 chỗ" class="mx-auto mb-4 rounded-lg border-2 border-[#CFAF6C]">
+                    <h3 class="text-xl font-bold text-gray-800">Thuê xe 4/7/16 chỗ</h3>
+                    <p class="text-gray-600 mt-2">Đa dạng chủng loại, đặt xe dễ dàng đến bất cứ địa điểm nào tại Long Xuyên, liên tỉnh. Đón khách tận nơi trong vài phút giá cạnh tranh.</p>
+                    <button class="mt-4 px-4 py-2 bg-[#CFAF6C] text-white font-semibold rounded flex items-center justify-center mx-auto">
+                        Xem thêm ➜
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+    <!-- <footer class="bg-[#CFAF6C] py-6">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
+            <div class="text-left">
+                <h3 class="text-lg font-bold text-gray-800">VỀ THÔNG TIN</h3>
+                <p class="text-gray-700">Địa chỉ: Mỹ Thới, Long Xuyên, An Giang</p>
+                <p class="text-gray-700">Email: thoatk04@gmail.com</p>
+                <p class="text-gray-700">Số điện thoại: 07828 07826 (Giang)</p>
+            </div>
+            <div class="text-left">
+                <h3 class="text-lg font-bold text-gray-800">VỀ DỊCH VỤ</h3>
+                <p class="text-gray-700">Báo giá taxi Ngân Giang</p>
+                <p class="text-gray-700">Xe taxi 4 chỗ Long Xuyên</p>
+                <p class="text-gray-700">Xe taxi 7 chỗ Long Xuyên</p>
+                <p class="text-gray-700">Xe taxi 16 chỗ Long Xuyên</p>
+            </div>
+            <div>
+                <img src="img/logofooter.jpeg" alt="Ngân Giang Logo" class="h-24">
+            </div>
+        </div>
+    </footer> -->
+    <footer class="bg-[#CFAF6C] py-6">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 space-y-4 md:space-y-0 text-center md:text-left">
+            <div class="w-full md:w-auto">
+                <h3 class="text-lg font-bold text-gray-800">VỀ THÔNG TIN</h3>
+                <p class="text-gray-700">Địa chỉ: Mỹ Thới, Long Xuyên, An Giang</p>
+                <p class="text-gray-700">Email: thoatk04@gmail.com</p>
+                <p class="text-gray-700">Số điện thoại: 07828 07826 (Giang)</p>
+            </div>
+            <div class="w-full md:w-auto">
+                <h3 class="text-lg font-bold text-gray-800">VỀ DỊCH VỤ</h3>
+                <p class="text-gray-700">Báo giá taxi Ngân Giang</p>
+                <p class="text-gray-700">Xe taxi 4 chỗ Long Xuyên</p>
+                <p class="text-gray-700">Xe taxi 7 chỗ Long Xuyên</p>
+                <p class="text-gray-700">Xe taxi 16 chỗ Long Xuyên</p>
+            </div>
+            <div class="w-full md:w-auto flex justify-center">
+                <img src="img/logofooter.jpeg" alt="Ngân Giang Logo" class="h-24">
+            </div>
+        </div>
+    </footer>
+    
+
+</main>
+<script src="main.js" defer></script>
+</body>
+</html>
+
+
+
